@@ -1,0 +1,311 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+#home{
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	background: url('images/website-title-alt.jpg') center center scroll;
+	background-size: cover;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-end;
+  transform: translateZ(-1px) scale(1.5);
+}
+
+.photolabel{
+	margin: 0 0 20px 40px;
+}
+
+.photolabel-text {
+	color: white;
+	text-shadow: 1px 1px 3px #7688a6;
+	font-size: 17px;
+}
+
+.photolabel-bottom{
+	font-size: 13px;
+}
+
+#para{
+  height: 100vh;
+	width: 100vw;
+  overflow-x:hidden;
+  overflow-y: auto;
+  perspective: 2px;
+}
+
+#about{
+	height: 100vh;
+	width: 100vw;
+  position: relative;
+  background-color: #FFFFFF;
+}
+
+h1 {
+	font-family: AvenirNext-DemiBold;
+  font-size: 110px;
+  color: #000000;
+}
+
+.test {
+  position: relative;
+  margin-top: -61px;
+  margin-bottom: 20px;
+  margin-left: 40px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.about-header {
+height:160px;
+margin: 70px 0 0 100px;
+position: relative;
+}
+
+.chinese-header{
+	font-family: STHeitiSC-Medium;
+	font-size: 140px;
+	color: #EBEAEA;
+	position: relative;
+	left: 150px;
+}
+
+.english-header {
+	position: absolute;
+	top: 10px;
+}
+
+.about-header-title{
+ 	padding-top: 35px;
+ 	line-height: 56px;
+ }
+
+ .about-body{
+ 	margin: 50px 0 0 95px;
+ }
+
+ p {
+	font-family: AvenirNext-Regular;
+ 	font-size: 18px;
+ 	color: #787878;
+ 	text-align: justify;
+}
+#portfolio{
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	/*background-image: linear-gradient(-180deg, #0D4CAD 0%, #998AB8 49%, #FFAA7E 100%);
+	background-size: cover;*/
+	display: flex;
+}
+.portfolio>div{
+	width: 27%;
+	height: 80%;
+	display: table;
+}
+.object{
+	float:left;
+	background: rgba(255,255,255,0.11);
+	border-radius: 40px;
+	display: table-cell;
+}
+#Contact{
+	height: 100vh;
+	width: 100vw;
+	background-color: #000000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Center{
+	margin: 0;
+	position: relative;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+
+.button:link,
+.button:visited {
+  display: block;
+  text-decoration: none;
+
+  color: #FFFFFF;
+  background-color: #4200FF;    /* Blue */
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  border-radius: 3px;
+
+  width: 250px;
+	height: 60px;
+}
+
+.button:hover {
+  color: #FFF;
+  background-color: #614fff;  /* Light blue */
+  box-shadow:
+          1px 1px #53a7ea,
+          2px 2px #53a7ea,
+          3px 3px #53a7ea;
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-3px);
+}
+
+.button:active {
+  color: #FFF;
+  background-color: #5995DA;  /* Blue */
+}
+
+#wip{
+  margin-top: 200px;
+  padding: 50px 0 50px 0;
+  background-color: #000000;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+#wiptext:hover {
+  padding: 0px 5px 0px 5px;
+  box-shadow:
+          1px 1px #53a7ea,
+          2px 2px #53a7ea,
+          3px 3px #53a7ea;
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-3px);
+}
+
+@media screen and (min-width: 550px) and (max-width: 1199px){
+	h1 {
+		font-size: 10.5rem
+	}
+
+	#about {
+		display: flex;
+    align-items: center;
+		justify-content: flex-start;
+		flex-direction: column;
+	}
+
+	.about-header {
+	height:180px;
+	margin: 130px 0 0 200px;
+	}
+
+  #about-button{
+    margin-top: 70px;
+  }
+
+	.chinese-header{
+		font-size: 13rem;
+		left: 185px;
+	}
+
+	p {
+		font-size: 2.4rem;
+		text-align: center;
+	}
+
+	.about-body{
+  	margin: 5rem 5rem 0 5rem;
+  }
+
+  #home{
+    position: relative;
+  	height: 100vh;
+  	width: 100vw;
+  	background: url('images/website-title-phone.jpg') center center scroll;
+  	background-size: cover;
+  	display: flex;
+  	justify-content: flex-start;
+  	align-items: flex-end;
+    transform: translateZ(-1px) scale(1.5);
+  }
+}
+
+
+@media screen and (min-width: 1200px) {
+	p {
+		font-size: 19px;
+	}
+
+  #about{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #about-button{
+    margin-right: 12rem;
+    margin-top: 2rem;
+  }
+
+	.about-text{
+ 	width: 540px;
+  }
+
+  .about-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 14rem;
+  }
+}
+
+@media screen and (min-width: 1679px) {
+	h1 {
+		font-size: 130px
+	}
+	.about-header {
+	height:180px;
+	margin: 100px 0 0 130px;
+	}
+
+	.chinese-header{
+		font-size: 160px;
+		left: 175px;
+	}
+
+	p {
+		font-size: 25px
+	}
+
+  #about{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #about-button{
+    margin-right: 25rem;
+    margin-top: 2rem;
+  }
+
+	.about-body{
+  	margin: 70px 0 0 120px;
+  }
+
+  .about-text{
+    width: 700px;
+  }
+
+  .about-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+  }
+}
