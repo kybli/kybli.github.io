@@ -5,33 +5,49 @@
 
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900">
 
+        <script src = "https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src = "grid.js"></script>
+
         <style>
             body {
-                background-color: #000000;
+                /*background-color: #000000;*/
+                background-color: #15141a;
+
             }
 
             .grid {
                 width: 83.5%;
                 margin: auto;
+
+                min-width: 950px;
                 
-                max-width: 1056px;
+                max-width: 1100px;
+
+                transition: height 0s;
+
                 
-                display: flex;
-                justify-content: space-between;
+                /*30.303%*/
             }
-    
-    
-            .col {
-                display:flex;
-                flex-direction: column;
-                justify-content: flex-start;
-    
-                width: 30.303%;
+
+            .grid-sizer {
+                width: 30%;
             }
-    
+
+            .gutter-sizer {
+                width: 5%;
+            }
+
+            .grid-item {
+                float: left;
+                width: 30%;
+            }
     
             .card {
-                background-color: #1f1e24;
+                /*background-color: #1f1e24;*/
+                
+                
+                /*background-color: #212129;*/
                 
                 margin-bottom: 15%;
                 /* 18.18181818 */
@@ -40,29 +56,33 @@
                 /*height: 216px;*/
     
                 height: 0;
-                overflow: hidden;
+                
                 padding-top: 70%;
                 position:relative;
-    
+                overflow: hidden;
                 
-    
-                border-radius: 8px;
     
     
     
                 /* hover off*/
-                transition: .3s;
-                transition-timing-function: .5s ease-in;
+                /*transition: .3s;
+                transition-timing-function: .5s ease-in;*/
             }
     
             div.card:hover {
-                    transition: all .5s;
-                    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+                    /*transition: all .5s;
+                    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);*/
                     padding-top: calc(350/330 * 100%);
             }
     
     
             .aspect-card {
+                background-color: #212129;
+                border-radius: 8px;
+                overflow: hidden;
+                transition: height .5s;
+                transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -109,6 +129,8 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
+
+                /*padding-top: 4%;*/
     
                 display: flex;
             }
@@ -127,15 +149,10 @@
     
     
             .card-caption-left {
-                position: absolute;
-                top: calc(10/48 * 100%);
-                left: 6.25%;
-    
-                display: flex;
-                flex-direction: column;
-
                 width: 60%;
 
+                padding-top: 4.5%;
+                padding-left: 6.25%;
             }
     
     
@@ -149,11 +166,9 @@
                 bottom: 23%;
                 right: 6.25%;
     
-                display: flex;
-                justify-content: center;
     
                 /* Unhover */
-                transition: all .3s;
+                transition: .3s;
                 transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
             }
     
@@ -165,22 +180,31 @@
                     width: 20%;
                     height: calc(16/48 * 100%);
                     border-radius: 3px;
+
+                    display: table;
             }
 
             .hackathon-tab {
-                background-color: #FFC700;
+                /*background-color: #FFC700;*/
+                background-image: linear-gradient(to top right, #FE9E68, #F7CE68);
+                
             }
 
             .intern-tab {
-                background-color: #8EFFC9;
+                /*background-color: #8EFFC9;*/
+                background-image: linear-gradient(to top right, #4CB8C4, #72F0C3);
+                
             }
 
             .project-tab {
-                background-color: #0047FF;
+                /*background-color: #0047FF;*/
+                background-image: linear-gradient(to top right, #9599E2, #8BC6EC);
+
             }
 
             .other-tab {
-                background-color: #FF5252;
+                /*background-color: #FF5252;*/
+                background-image: linear-gradient(to top right, #FC98AA, #FFC7C7);
             }
 
             .tab-dark-text {
@@ -198,16 +222,15 @@
             }
     
             .explore {
+                display: table-cell;
                 opacity: 0;
-                overflow: hidden;
                 /*5%*/
-                margin-top: 4%;
-    
-                text-decoration: none;
+                text-align: center;
+                vertical-align: middle;
 
                 font-family: 'Source Sans Pro', sans-serif;
                 font-weight: 600;
-                font-size: min(0.8vw, 10px);
+                font-size: 10px;
             }
     
             div.card:hover .explore {
@@ -220,8 +243,10 @@
             }
     
             .card-content {
+                transition-property: opacity;
                 transition-duration: .3s;
                 opacity: 0;
+                color: white;
 
                 margin-top: 0;
                 margin-left: 6.25%;
@@ -229,13 +254,12 @@
                 padding: 0;
                 
                 font-family: 'Source Sans Pro', sans-serif;
-                font-size: min(1.275vw, 16px);
+                /*font-size: min(1.275vw, 16px);*/
+                font-size: 15px;
                 font-weight: 200;
             }
     
             div.card:hover .card-content {
-                color: white;
-    
                 transition-delay: 0s;
                 opacity: 1;
             }
@@ -247,64 +271,49 @@
                 margin-top: -3%;
                 padding: 0;
                 border: 0;
-    /********/
+                
                 font-family: 'Source Sans Pro', sans-serif;
                 font-weight: 600;
-                font-size: min(1.8vw, 23px);
+                font-size: 19px;
+
+                z-index: 1;
             }
-    
-            .card-subtitle-1 {
-                transition-duration: .3s;
-                transition-timing-function: ease-in-out;
 
-                color: #AAAAAA;
+            .card-subtitle {
+                position: absolute;
+                bottom: 17%;
+                left: 6.25%;
+
                 margin: 0;
-                margin-top: -1%;
                 padding: 0;
-                border: 0;
 
+                font-family: 'Source Sans Pro', sans-serif;
+                font-weight: 600;
+                font-size: 11px;
+                color: #79798f;
+
+                transition-duration: .2s;
+                transition-timing-function: ease-in-out;
+            }
+
+            .sub-start {
+                margin-bottom: 0%;
                 opacity: 1;
-
-                font-family: 'Source Sans Pro', sans-serif;
-                font-weight: 600;
-                font-size: min(.9vw, 11px);
-
             }
 
-            .card-subtitle-2 {
-                transition-duration: .3s;
-                transition-timing-function: ease-in-out;
-
-                color: #AAAAAA;
-                margin: 0;
-                /*margin-top: -7.5%;*/
-                margin-top: -14.5%;
-                padding: 0;
-                border: 0;
-
-                font-family: 'Source Sans Pro', sans-serif;
-                font-weight: 600;
-                font-size: min(.9vw, 11px);
-
+            .sub-end {
+                margin-bottom: 3%;
                 opacity: 0;
             }
 
-            div.card:hover .card-subtitle-1 {
-                transition-delay: 0s;
-                transition-duration: .3s;
-                transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-
+            div.card:hover .sub-start {
                 opacity: 0;
-                margin-top: 3%;
+                margin-bottom: -3%;
             }
 
-            div.card:hover .card-subtitle-2 {
-                transition-delay: 0s;
-                transition-duration: .3s;
-                transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-
+            div.card:hover .sub-end {
                 opacity: 1;
-                margin-top: -10.5%;
+                margin-bottom: 0%;
             }
     
 
@@ -314,12 +323,52 @@
                 height:100%;
                 top:0;
                 left: 0;
-                z-index: 1;
+                z-index: 2;
 
                 /* edit: fixes overlap error in IE7/8, 
                     make sure you have an empty gif 
                 background-image: url('empty.gif');*/
             }   
+
+
+            /* two column */
+            @media only screen and (max-width: 1000px) {
+                .grid-sizer{
+                    width: 47.5%;
+                }
+
+                .grid-item{
+                    width: 47.5%;
+                }
+
+                .grid {
+                    min-width: 0px;
+                }
+            }
+
+            /* one column */
+            @media only screen and (max-width: 700px) {
+                .grid {
+                    max-width: 420px;
+                }
+                
+                .grid-sizer{
+                    width: 100%;
+                }
+
+                .grid-item{
+                    width: 100%;
+                }
+
+                .gutter-sizer {
+                    width: 0%;
+                }
+            }
+
+
+
+
+
         </style>
 
     </head>
@@ -331,17 +380,15 @@
         <h1 style = "font-family: 'Source Sans Pro'; font-weight: 300; font-size: 200%; color: white; margin-top: 5%; margin-bottom: 5%; margin-left: 41%; margin-right: auto;">Projects by Kyle Li</h1>
 
         <div class = "grid">
+                <div class = "grid-sizer"></div>
+                <div class = "gutter-sizer"></div>
 
-            <!--Column 1-->
-            <div class = "col">
-
+                <div class = "grid-item">
                     <div class = "card">
                         <div class = "aspect-card">
                             <div class = "aspect-card-img">
                                 <div class = card-img>
-                                    <div>
-                                        <img src="img/insura_img.jpg" class = "card-img-sizing" alt="Insura Logo">
-                                    </div>
+                                    <img src="img/insura_img.jpg" class = "card-img-sizing" alt="Insura Logo">
                                 </div>
                             </div>
 
@@ -350,13 +397,54 @@
                                     
                                         <div class = "card-caption-left">
                                             <h3 class = "card-title">Insura</h3>
-                                            <p class = "card-subtitle-1">An insurance gamefication client</p>
-                                            <p class = "card-subtitle-2">PennApps September 2020</p>
+                                            <p class = "card-subtitle sub-start">An insurance gamefication client</p>
+                                            <p class = "card-subtitle sub-end">PennApps September 2020</p>
                                         </div>
 
                                         <div>
                                             <div class = "project-link hackathon-tab">
-                                                    <a class = "explore tab-dark-text">hackathon</a>
+                                                    <p class = "explore tab-dark-text">hackathon</p>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+
+                            <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
+                            
+                            <a href="https://devpost.com/software/insura" target = "_blank">
+                                <span class="linkSpanner"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                    <!--Design Innovation-->
+                <div class = "grid-item">
+                    <div class = "card">
+                        <div class = "aspect-card">
+                            <div class = "aspect-card-img">
+                                <div class = card-img>
+                                    <div>
+                                        <img src="img/Design_Innovation.png" class = "card-img-sizing" alt="Design Innovation">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class = "card-caption">
+                                <div class = "aspect-card-caption">
+                                    
+                                        <div class = "card-caption-left">
+                                            <h3 class = "card-title">Design Innovation</h3>
+                                            <p class = "card-subtitle sub-start">UI/UX Designer</p>
+                                            <p class = "card-subtitle sub-end">August 2020 - December 2020</p>
+                                        </div>
+
+                                        <div>
+                                            <div class = "project-link other-tab">
+                                                    <p class = "explore tab-dark-text">other - club</p>
                                             </div>
                                         </div>
                                     
@@ -366,331 +454,272 @@
 
                             <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
                             
-                            <a href="https://devpost.com/software/insura" target = "_blank">
+                            <a href="https://www.designinnovationillinois.com" target = "_blank">
                                 <span class="linkSpanner"></span>
                             </a>
                         </div>
+
                     </div>
+                </div>
+
+
+
+                    <!--Brighthouse Financial-->
+                <div class = "grid-item">
+                    <div class = "card">
+                        <div class = "aspect-card">
+                            <div class = "aspect-card-img">
+                                <div class = card-img>
+                                    <div>
+                                        <img src="img/Brighthouse_Financial_Logo.png" class = "card-img-sizing" alt="Brighthouse Financial Logo">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class = "card-caption">
+                                <div class = "aspect-card-caption">
+                                    
+                                        <div class = "card-caption-left">
+                                            <h3 class = "card-title">Brighthouse Financial</h3>
+                                            <p class = "card-subtitle sub-start">Quantitative Developer Intern</p>
+                                            <p class = "card-subtitle sub-end">June 2020 - August 2020</p>
+                                        </div>
+
+                                        <div>
+                                            <div class = "project-link intern-tab">
+                                                    <p class = "explore tab-dark-text">internship</p>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+
+
+                            <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
+                            
+                            <a href="https://www.brighthousefinancial.com/" target = "_blank">
+                                <span class="linkSpanner"></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
 
 
 
                     <!--CoviCast-->
-                <div class = "card">
-                    <div class = "aspect-card">
-                        <div class = "aspect-card-img">
-                            <div class = card-img>
-                                <div>
-                                    <img src="img/CoviCast.jpg" class = "card-img-sizing" alt="CoviCast Cover Art by Paula Mendez">
+                <div class = "grid-item">
+                    <div class = "card">
+                        <div class = "aspect-card">
+                            <div class = "aspect-card-img">
+                                <div class = card-img>
+                                    <div>
+                                        <img src="img/CoviCast.jpg" class = "card-img-sizing" alt="CoviCast Cover Art by Paula Mendez">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class = "card-caption">
-                            <div class = "aspect-card-caption">
-                                
-                                    <div class = "card-caption-left">
-                                        <h3 class = "card-title">CoviCast</h3>
-                                        <p class = "card-subtitle-1">Covid-19 case count prediction tool</p>
-                                        <p class = "card-subtitle-2">March 2020</p>
-                                    </div>
-
-                                    <div>
-                                        <div class = "project-link project-tab">
-                                                <a class = "explore tab-light-text">project</a>
+                            <div class = "card-caption">
+                                <div class = "aspect-card-caption">
+                                    
+                                        <div class = "card-caption-left">
+                                            <h3 class = "card-title">CoviCast</h3>
+                                            <p class = "card-subtitle sub-start">Covid-19 case count prediction tool</p>
+                                            <p class = "card-subtitle sub-end">March 2020</p>
                                         </div>
-                                    </div>
-                                
-                            </div>
-                        </div>
 
-
-                        <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
-                        
-                        <a href="https://github.com/kybli/CoviCast" target = "_blank">
-                            <span class="linkSpanner"></span>
-                        </a>
-                    </div>
-
-                </div>
-
-
-                <!--Columbia University Medical Center-->
-                <div class = "card">
-                    <div class = "aspect-card">
-                        <div class = "aspect-card-img">
-                            <div class = card-img>
-                                <div>
-                                    <img src="img/CUMC_Logo.png" class = "card-img-sizing" alt="Columbia University Medical Center Logo">
+                                        <div>
+                                            <div class = "project-link project-tab">
+                                                    <p class = "explore tab-light-text">project</p>
+                                            </div>
+                                        </div>
+                                    
                                 </div>
                             </div>
-                        </div>
-
-                        <div class = "card-caption">
-                            <div class = "aspect-card-caption">
-                                
-                                    <div class = "card-caption-left">
-                                        <h3 class = "card-title">CUMC</h3>
-                                        <p class = "card-subtitle-1">Data analyst intern</p>
-                                        <p class = "card-subtitle-2">July 2018 - August 2018</p>
-                                    </div>
-
-                                    <div>
-                                        <div class = "project-link intern-tab">
-                                                <a class = "explore tab-dark-text">Internship</a>
-                                        </div>
-                                    </div>
-                                
-                            </div>
-                        </div>
 
 
-                        <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
-                        
-                        <a href="https://www.columbiapsychiatry.org/profile/bin-xu-phd" target = "_blank">
-                            <span class="linkSpanner"></span>
-                        </a>
-                    </div>
-                </div>
-
-
-
-
-
-            </div>
-
-
-
-            <!-- column 2 --> 
-            <div class = "col">
-                
-                <!--Design Innovation-->
-                <div class = "card">
-                    <div class = "aspect-card">
-                        <div class = "aspect-card-img">
-                            <div class = card-img>
-                                <div>
-                                    <img src="img/Design_Innovation.png" class = "card-img-sizing" alt="Design Innovation">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class = "card-caption">
-                            <div class = "aspect-card-caption">
-                                
-                                    <div class = "card-caption-left">
-                                        <h3 class = "card-title">Design Innovation</h3>
-                                        <p class = "card-subtitle-1">UI/UX Designer</p>
-                                        <p class = "card-subtitle-2">August 2020 - December 2020</p>
-                                    </div>
-
-                                    <div>
-                                        <div class = "project-link other-tab">
-                                                <a class = "explore tab-dark-text">other - club</a>
-                                        </div>
-                                    </div>
-                                
-                            </div>
-                        </div>
-
-
-                        <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
-                        
-                        <a href="https://www.designinnovationillinois.com" target = "_blank">
-                            <span class="linkSpanner"></span>
-                        </a>
-                    </div>
-
-                </div>
-
-
-
-                <!--Flulytics-->
-                <div class = "card">
-                    <div class = "aspect-card">
-                        <div class = "aspect-card-img">
-                            <div class = card-img>
-                                <div>
-                                    <img src="img/Flulytics.png" class = "card-img-sizing" alt="Flulytics Cover Art by Oleksandr Aleksandrov">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class = "card-caption">
-                            <div class = "aspect-card-caption">
-                                
-                                    <div class = "card-caption-left">
-                                        <h3 class = "card-title">Flulytics</h3>
-                                        <p class = "card-subtitle-1">A tool to inform flu vaccine production</p>
-                                        <p class = "card-subtitle-2">HackPrinceton November 2019</p>
-                                    </div>
-
-                                    <div>
-                                        <div class = "project-link hackathon-tab">
-                                                <a class = "explore tab-dark-text">hackathon</a>
-                                        </div>
-                                    </div>
-                                
-                            </div>
-                        </div>
-
-
-                        <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
-                        
-                        <a href="https://devpost.com/software/in-b4-uenza" target = "_blank">
-                            <span class="linkSpanner"></span>
-                        </a>
-                    </div>
-                </div>
-
-
-
-
-                
-            <!--Innata-->
-            <div class = "card">
-                <div class = "aspect-card">
-                    <div class = "aspect-card-img">
-                        <div class = card-img>
-                            <div>
-                                <img src="img/innata.png" class = "card-img-sizing" alt="Innata Logo">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class = "card-caption">
-                        <div class = "aspect-card-caption">
+                            <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
                             
-                                <div class = "card-caption-left">
-                                    <h3 class = "card-title">Innata</h3>
-                                    <p class = "card-subtitle-1">A finance tracking application</p>
-                                    <p class = "card-subtitle-2">PennApps January 2017</p>
-                                </div>
+                            <a href="https://github.com/kybli/CoviCast" target = "_blank">
+                                <span class="linkSpanner"></span>
+                            </a>
+                        </div>
 
-                                <div>
-                                    <div class = "project-link hackathon-tab">
-                                            <a class = "explore tab-dark-text">hackathon</a>
+                    </div>
+                </div>
+
+
+                    <!--Flulytics-->
+                <div class = "grid-item">
+                    <div class = "card">
+                        <div class = "aspect-card">
+                            <div class = "aspect-card-img">
+                                <div class = card-img>
+                                    <div>
+                                        <img src="img/Flulytics.png" class = "card-img-sizing" alt="Flulytics Cover Art by Oleksandr Aleksandrov">
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class = "card-caption">
+                                <div class = "aspect-card-caption">
+                                    
+                                        <div class = "card-caption-left">
+                                            <h3 class = "card-title">Flulytics</h3>
+                                            <p class = "card-subtitle sub-start">A tool to inform flu vaccine production</p>
+                                            <p class = "card-subtitle sub-end">HackPrinceton November 2019</p>
+                                        </div>
+
+                                        <div>
+                                            <div class = "project-link hackathon-tab">
+                                                    <p class = "explore tab-dark-text">hackathon</p>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+
+
+                            <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
                             
+                            <a href="https://devpost.com/software/in-b4-uenza" target = "_blank">
+                                <span class="linkSpanner"></span>
+                            </a>
                         </div>
                     </div>
-
-
-                    <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
-                    
-                    <a href="https://devpost.com/software/innata" target = "_blank">
-                        <span class="linkSpanner"></span>
-                    </a>
                 </div>
-            </div>
 
 
 
-            
+                    <!--Website V1-->
+                <div class = "grid-item">
+                    <div class = "card">
+                        <div class = "aspect-card">
+                            <div class = "aspect-card-img">
+                                <div class = card-img>
+                                    <div>
+                                        <img src="img/Website_v1.jpg" class = "card-img-sizing" alt="Designedbykyleli.com version 1 landing page">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class = "card-caption">
+                                <div class = "aspect-card-caption">
+                                    
+                                        <div class = "card-caption-left">
+                                            <h3 class = "card-title">Website v1</h3>
+                                            <p class = "card-subtitle sub-start">1st iteration of designedbykyleli.com</p>
+                                            <p class = "card-subtitle sub-end">December 2018 - March 2019</p>
+                                        </div>
+
+                                        <div>
+                                            <div class = "project-link project-tab">
+                                                    <p class = "explore tab-light-text">Project</p>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+
+
+                            <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
+                            
+                            <a href="designedbykyleli_v1/designedbykyleliv1.html" target = "_blank">
+                                <span class="linkSpanner"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <!--Columbia University Medical Center-->
+                <div class = "grid-item">
+                    <div class = "card">
+                        <div class = "aspect-card">
+                            <div class = "aspect-card-img">
+                                <div class = card-img>
+                                    <div>
+                                        <img src="img/CUMC_Logo.png" class = "card-img-sizing" alt="Columbia University Medical Center Logo">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class = "card-caption">
+                                <div class = "aspect-card-caption">
+                                    
+                                        <div class = "card-caption-left">
+                                            <h3 class = "card-title">CUMC</h3>
+                                            <p class = "card-subtitle sub-start">Data analyst intern</p>
+                                            <p class = "card-subtitle sub-end">July 2018 - August 2018</p>
+                                        </div>
+
+                                        <div>
+                                            <div class = "project-link intern-tab">
+                                                    <p class = "explore tab-dark-text">Internship</p>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+
+
+                            <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
+                            
+                            <a href="https://www.columbiapsychiatry.org/profile/bin-xu-phd" target = "_blank">
+                                <span class="linkSpanner"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
 
                 
-            </div>
-
-
-
-
-
-            <!-- Column 3-->
-            <div class = "col">
-                
-
-
-
-                <!--Brighthouse Financial-->
-                <div class = "card">
-                    <div class = "aspect-card">
-                        <div class = "aspect-card-img">
-                            <div class = card-img>
-                                <div>
-                                    <img src="img/Brighthouse_Financial_Logo.png" class = "card-img-sizing" alt="Brighthouse Financial Logo">
+                    <!--Innata-->
+                <div class = "grid-item">
+                    <div class = "card">
+                        <div class = "aspect-card">
+                            <div class = "aspect-card-img">
+                                <div class = card-img>
+                                    <div>
+                                        <img src="img/innata.png" class = "card-img-sizing" alt="Innata Logo">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class = "card-caption">
-                            <div class = "aspect-card-caption">
-                                
-                                    <div class = "card-caption-left">
-                                        <h3 class = "card-title">Brighthouse Fin.</h3>
-                                        <p class = "card-subtitle-1">Quantitative Developer Intern</p>
-                                        <p class = "card-subtitle-2">June 2020 - August 2020</p>
-                                    </div>
-
-                                    <div>
-                                        <div class = "project-link intern-tab">
-                                                <a class = "explore tab-dark-text">internship</a>
+                            <div class = "card-caption">
+                                <div class = "aspect-card-caption">
+                                    
+                                        <div class = "card-caption-left">
+                                            <h3 class = "card-title">Innata</h3>
+                                            <p class = "card-subtitle sub-start">A finance tracking application</p>
+                                            <p class = "card-subtitle sub-end">PennApps January 2017</p>
                                         </div>
-                                    </div>
-                                
-                            </div>
-                        </div>
 
-
-                        <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
-                        
-                        <a href="https://www.brighthousefinancial.com/" target = "_blank">
-                            <span class="linkSpanner"></span>
-                        </a>
-                    </div>
-
-                </div>
-
-
-
-
-                <!--Website V1-->
-                <div class = "card">
-                    <div class = "aspect-card">
-                        <div class = "aspect-card-img">
-                            <div class = card-img>
-                                <div>
-                                    <img src="img/Website_v1.jpg" class = "card-img-sizing" alt="Designedbykyleli.com version 1 landing page">
+                                        <div>
+                                            <div class = "project-link hackathon-tab">
+                                                    <p class = "explore tab-dark-text">hackathon</p>
+                                            </div>
+                                        </div>
+                                    
                                 </div>
                             </div>
+
+
+                            <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
+                            
+                            <a href="https://devpost.com/software/innata" target = "_blank">
+                                <span class="linkSpanner"></span>
+                            </a>
                         </div>
-
-                        <div class = "card-caption">
-                            <div class = "aspect-card-caption">
-                                
-                                    <div class = "card-caption-left">
-                                        <h3 class = "card-title">Website v1</h3>
-                                        <p class = "card-subtitle-1">First iteration of designedbykyleli.com</p>
-                                        <p class = "card-subtitle-2">December 2018 - March 2019</p>
-                                    </div>
-
-                                    <div>
-                                        <div class = "project-link project-tab">
-                                                <a class = "explore tab-light-text">Project</a>
-                                        </div>
-                                    </div>
-                                
-                            </div>
-                        </div>
-
-
-                        <p class = "card-content">Developed Insura, an IOS app that acts as a platform to interface between insurance providers and homeowners in order to incentivize the adoption of safe housing practices using gamification.</p>
-                        
-                        <a href="designedbykyleli_v1/designedbykyleliv1.html" target = "_blank">
-                            <span class="linkSpanner"></span>
-                        </a>
                     </div>
                 </div>
 
-
-
-
-                <div class = "card">
-                    <h3>card 3-2</h3>
-                </div>
-
-
-            </div>
+<!--
+                <div class = "grid-item">
+                    <div class = "card">
+                        <h3>card 3-2</h3>
+                    </div>
+                </div>-->
         </div>
     </body>
 </html>
