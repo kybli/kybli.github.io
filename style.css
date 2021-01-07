@@ -12,6 +12,8 @@ body {
     max-width: 1100px;
 
     transition: height 0s;
+
+    margin-bottom: 7%;
 }
 
 .grid-sizer {
