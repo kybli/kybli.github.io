@@ -42,7 +42,15 @@ body {
 
 
 div.card:hover {
-        padding-top: calc(357/330 * 100%);
+    padding-top: calc(357/330 * 100%);
+}
+
+.six-lines-hover:hover {
+    padding-top: calc(377/330 * 100%) !important;
+}
+
+.seven-lines-hover:hover {
+    padding-top: calc(397/330 * 100%) !important;
 }
 
 
@@ -104,7 +112,7 @@ div.card:hover {
     overflow: hidden;
     padding-top: 17.5%;
 
-    transition: margin-top .3s ease-in-out;
+    transition: margin-top .3s linear;
 }
 
 .card:hover .card-caption {
@@ -146,37 +154,7 @@ div.card:hover div.project-link {
         display: table;
 }
 
-.hackathon-tab {
-    /*background-color: #FFC700;*/
-    background-image: linear-gradient(to top right, #FE9E68, #F7CE68);
-}
 
-.intern-tab {
-    /*background-color: #8EFFC9;*/
-    background-image: linear-gradient(to top right, #4CB8C4, #72F0C3);
-}
-
-.project-tab {
-    /*background-color: #0047FF;*/
-    background-image: linear-gradient(to top right, #9599E2, #8BC6EC);
-}
-
-.other-tab {
-    /*background-color: #FF5252;*/
-    background-image: linear-gradient(to top right, #FC98AA, #FFC7C7);
-}
-
-.other-tab-label {
-    font-size: 5px;
-}
-
-.tab-dark-text {
-    color:#000000;
-}
-
-.tab-light-text {
-    color: white;
-}
 
 .vertical-center {
     display: flex;
@@ -290,6 +268,36 @@ div.card:hover .sub-end {
         make sure you have an empty gif 
     background-image: url('empty.gif');*/
 }   
+
+
+.hackathon-tab {
+    /*background-color: #FFC700;*/
+    background-image: linear-gradient(to top right, #FE9E68, #F7CE68);
+}
+
+.intern-tab {
+    /*background-color: #8EFFC9;*/
+    background-image: linear-gradient(to top right, #4CB8C4, #72F0C3);
+}
+
+.project-tab {
+    /*background-color: #0047FF;*/
+    background-image: linear-gradient(to top right, #9599E2, #8BC6EC);
+}
+
+.other-tab {
+    /*background-color: #FF5252;*/
+    background-image: linear-gradient(to top right, #FC98AA, #FFC7C7);
+}
+
+.tab-dark-text {
+    color:#000000;
+}
+
+.tab-light-text {
+    color: white;
+}
+
 
 
 /* two column */
