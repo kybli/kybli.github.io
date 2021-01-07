@@ -42,7 +42,7 @@ body {
 
 
 div.card:hover {
-        padding-top: calc(350/330 * 100%);
+        padding-top: calc(357/330 * 100%);
 }
 
 
@@ -103,6 +103,12 @@ div.card:hover {
     height: 0;
     overflow: hidden;
     padding-top: 17.5%;
+
+    transition: margin-top .3s ease-in-out;
+}
+
+.card:hover .card-caption {
+    margin-top: 1%;
 }
 
 .card-caption-left {
@@ -158,6 +164,10 @@ div.card:hover div.project-link {
 .other-tab {
     /*background-color: #FF5252;*/
     background-image: linear-gradient(to top right, #FC98AA, #FFC7C7);
+}
+
+.other-tab-label {
+    font-size: 5px;
 }
 
 .tab-dark-text {
