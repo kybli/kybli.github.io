@@ -41,7 +41,7 @@ $(document).ready(function () {
     $("#dream").hover(function () {
         console.log("hovering: dream");
         $("#typewriter").css({"color" : "#6a3eff"});
-        typewriter.typeString('<span style = "-webkit-text-fill-color: transparent; -moz-text-fill-color: transparent; background-image: linear-gradient(to right,#6442ff,#9012fe 100%); -webkit-background-clip: text; -moz-background-clip: text;">dream</span>')
+        typewriter.typeString('<span style = "-webkit-text-fill-color: transparent; -moz-text-fill-color: transparent; background-image: linear-gradient(to right,#6442ff,#9012fe 100%); -webkit-background-clip: text; -moz-background-clip: text; margin-left: -3px;">dream</span>')
             .start();
     },
     function() {
@@ -56,7 +56,7 @@ $(document).ready(function () {
     
     $("#contact").hover(function () {
         console.log("hovering: contact");
-        typewriter.typeString('contact')
+        typewriter.typeString('<span style = "margin-left: -3px;">contact</span>')
             .start();
     },
     function() {
@@ -67,7 +67,7 @@ $(document).ready(function () {
 
 
     //copy with get in touch button
-    
+
     var clipboard = new ClipboardJS('#contact');
 
     clipboard.on('success', function(e) {
