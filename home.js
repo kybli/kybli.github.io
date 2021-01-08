@@ -236,7 +236,7 @@ $(document).ready(function () {
                                     }
                                     
                                 })
-                            }, 2000)
+                            }, 1900)
 
                             typewriter.deleteAll(40)
                                 .start();
