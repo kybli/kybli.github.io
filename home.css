@@ -94,6 +94,11 @@ body {
 }
 
 @media screen and (max-width:768px) {
+
+    .social-links {
+        left: 0;
+    }
+
     .navTrigger {
         display: block;
     }
@@ -382,6 +387,23 @@ body {
     margin: 0;
 
     transition: opacity .3s;
+}
+
+
+.social-links {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+
+    bottom: 0;
+    right: 0;
+
+    margin: 15px;
+}
+
+.logo {
+    width: 30px;
+    margin-top: 10px;
 }
 
 /*
