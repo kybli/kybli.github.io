@@ -27,16 +27,18 @@ body {
     width: auto;
     height: auto;
     padding-left: 5%;
+
+    padding-top: 0;
+    margin-top: 0;
 }
 
 .nav div.logo a {
     text-decoration: none;
-    color: #000000;
-    font-size: 2.5rem;
-}
+    font-size: 3.2rem;
 
-.nav div.logo a:hover {
-    color: #00E676;
+
+    font-weight: 600;
+    color: #3b3b3b;
 }
 
 .nav div.main_list {
@@ -398,7 +400,8 @@ body {
     bottom: 0;
     right: 0;
 
-    margin: 15px;
+    margin: 2%;
+    width: 30px;
 }
 
 .logo {
