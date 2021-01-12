@@ -98,7 +98,7 @@ $(document).ready(function () {
                                         button.classList.remove('active');
                                     }
                                 })
-                            }, 2000)
+                            }, 5000)
                         }
                     }]
                 })

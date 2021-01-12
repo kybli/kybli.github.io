@@ -37,6 +37,16 @@ $(document).ready(function () {
         }
     });
 
+    $(".nav-link-typewriter").click(function () {
+        console.log("clicked: navbar-link");
+
+        typewriter.deleteAll().start();
+
+        setTimeout(function(){
+            $("#typewriter").css({"color" : "#000000"});
+        }, 600);
+    });
+
     $("#projects").hover(function () {
         console.log("hovering: projects");
 
