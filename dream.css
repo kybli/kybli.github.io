@@ -1,18 +1,192 @@
+body {
+
+    background-image: url('img/dream-bg-2.jpg');
+
+    background-size: cover;
+
+    margin: 0;
+
+}
+
+.transparent-bg {
+    margin: 0;
+    padding: 0;
+
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, .2);
+
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); 
+}
+
+
+
+
+.dream-card {
+    position: absolute;
+
+    width: max(500px, 40%);
+
+    display: flex;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    background-color: #f3f0f1;
+
+    top: 50%;
+    left: 50%;
+
+    margin-left: min(-20%, -250px);
+    margin-top: min(-12%, -150px);
+}
+
 .logo {
     width: 20px;
 }
 
-#dream-gif {
-    width: 30%;
+.gif-container {
+    width: 50%;
+    
+    position: relative;
+    height: 0;
+    overflow: hidden;
 
-    margin-left: auto;
-    margin-right: auto;
+    padding-top: 60%;
+
+    border-radius: 20px;
 }
 
-.insta-link {
-    text-decoration: none;
+.gif-aspect {
+    position: absolute;
 
-    color: black;
+    top: -3%;
+    left:0;
+    width: 100%;
+    height: 100%;
+}
+
+#dream-gif {
+    max-width: 100%;
+}
+
+
+.dream-card-content-container{
+    width: 40%;
+
+    padding: 7%;
+
+    
+}
+
+
+
+
+.dream-card-content-title h1{
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 35px;
+
+    margin-bottom: 2%;
+}
+
+.dream-card-content-title h3{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+
+    color: #505050;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+.insta-link {
+    position: absolute;
+    bottom: 15%;
+
+    width: 32%;
+    margin-left: -1%;
+
+    text-decoration: none;
+    text-align: center;
+    padding: 3%;
+
+    border-radius: 20px;
+
+    background-color: #6a8b67;
+
+    color: #ffffff;
     font-family: 'Source Sans Pro';
+    font-size: 15px;
+}
+
+.button-container {
+    display: flex;
+
+    justify-content: center;
+}
+
+@media screen and (min-width:1450px) {
+    .dream-card-content-title h1{
+        font-size: 50px;
+    }
+
+    .dream-card-content-title h3{
+        font-size: 17px;
+    }
+
+    .insta-link {
+        font-size: 17px;
+    }
+}
+
+
+@media screen and (max-width:500px) {
+    .dream-card {
+        flex-direction: column;
+
+        width: 90%;
+
+        top: 43%;
+
+        left: 0;
+        margin-left: 5%;
+    }
+
+    .gif-container {
+        width: 100%;
+    }
+
+    .gif-aspect {
+        top: -50%;
+    }
+
+    .dream-card-content-container {
+        width: 100%;
+
+        padding-top: 0;
+    }
+
+    .dream-card-content-title {
+        margin-bottom: 10%;
+        width: 86%;
+
+        text-align: center;
+    }
+
+    .button-container {
+        width: 86%;
+    }
+
+    .insta-link {
+        position: relative;
+        width: 160px;
+
+        margin: 0 auto;
+    }
 
 }
