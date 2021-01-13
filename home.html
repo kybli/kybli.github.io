@@ -17,56 +17,60 @@
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+        <script src="https://unpkg.com/@barba/core"></script>
 
         <link rel = "stylesheet" href = "home.css">
     </head>
 
-    <body>
-        <nav class="nav">
-            <div class="container">
-                <div class="logo">
-                    <a >李</a>
+    <body data-barba = "wrapper">
+        <div class = "page-container" data-barba = "container">
+            <nav class="nav">
+                <div class="container">
+                    <div class="logo">
+                        <a >李</a>
+                    </div>
+                    <div id="mainListDiv" class="main_list">
+                        <ul class="navlinks">
+                            <li><a href="about.html" id = "about" class = "nav-link-typewriter">about</a></li>
+                            <li><a href="index.html" id = "projects" class = "nav-link-typewriter">projects</a></li>
+                            <li><a href="dream.html" id = "dream" class = "nav-link-typewriter">dream</a></li>
+                            <li><a href="#" id = "contact" data-clipboard-text="kyleli2@illinois.edu">get in touch</a></li>
+                        </ul>
+                    </div>
+                    <span class="navTrigger">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </span>
                 </div>
-                <div id="mainListDiv" class="main_list">
-                    <ul class="navlinks">
-                        <li><a href="about.html" id = "about" class = "nav-link-typewriter">about</a></li>
-                        <li><a href="index.html" id = "projects" class = "nav-link-typewriter">projects</a></li>
-                        <li><a href="dream.html" id = "dream" class = "nav-link-typewriter">dream</a></li>
-                        <li><a href="#" id = "contact" data-clipboard-text="kyleli2@illinois.edu">get in touch</a></li>
-                    </ul>
-                </div>
-                <span class="navTrigger">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                </span>
+            </nav>
+    
+            <div class = "home-display-container">
+                <div id="typewriter"></div>
+                <div><h2 class = "by-kyle-li">by kyle li</h2></div>
+                <!--
+                <div class="button"><span class = "button-span">got it</span></div>
+                -->
+    
+                
             </div>
-        </nav>
-
-        <div class = "home-display-container">
-            <div id="typewriter"></div>
-            <div><h2 class = "by-kyle-li">by kyle li</h2></div>
-            <!--
-            <div class="button"><span class = "button-span">got it</span></div>
-            -->
-
-            
+    
+            <div class = "button-container">
+                <button class="button">
+                    <span class="button-span default">Got it</span>
+                    <span class="button-span success">Write soon! :)</span>
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </button>
+            </div>
+    
+            <div class = "social-links">
+                <a href = "https://dribbble.com/kyleli" target = "_blank"><img src = "logos/dribbble-ball-mark.svg" class = "logo" id = "dribbble"></a>
+                <a href = "https://github.com/kybli" target = "_blank"><img src = "logos/GitHub-Mark-120px-plus.png" class = "logo"></a>
+                <a href = "https://www.linkedin.com/in/kyle-li-912ab7183/" target = "_blank"><img src = "logos/linkedin.svg" class = "logo"></a>
+            </div>
         </div>
-
-        <div class = "button-container">
-            <button class="button">
-                <span class="button-span default">Got it</span>
-                <span class="button-span success">Write soon! :)</span>
-                <div class="left"></div>
-                <div class="right"></div>
-            </button>
-        </div>
-
-        <div class = "social-links">
-            <a href = "https://dribbble.com/kyleli" target = "_blank"><img src = "logos/dribbble-ball-mark.svg" class = "logo" id = "dribbble"></a>
-            <a href = "https://github.com/kybli" target = "_blank"><img src = "logos/GitHub-Mark-120px-plus.png" class = "logo"></a>
-            <a href = "https://www.linkedin.com/in/kyle-li-912ab7183/" target = "_blank"><img src = "logos/linkedin.svg" class = "logo"></a>
-        </div>
+        
 
         
 
