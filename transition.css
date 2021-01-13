@@ -1,0 +1,20 @@
+/* =Transition with cover screen */
+.with-cover-leave,
+.with-cover-enter,
+.with-cover-leave-active .transition,
+.with-cover-enter-active .transition {
+    transition: transform 0.5s var(--easing);
+}
+
+.with-cover-leave .transition {
+    transform: translateY(-100%);
+}
+
+.with-cover-leave-to .transition,
+.with-cover-enter .transition {
+    transform: translateY(0);
+}
+
+.with-cover-enter-to .transition {
+    transform: translateY(100%);
+}
