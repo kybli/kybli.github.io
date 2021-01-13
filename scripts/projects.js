@@ -16,14 +16,11 @@ $(document).ready(function () {
         //stuff to do on mouse enter
         console.log("hovering");
         msnry.layout();
-
-        
     }, 
     function () {
+        //stuff to do on mouse leave
         console.log("unhover");
         msnry.layout();
-
-        //stuff to do on mouse leave
     });
 
 
@@ -39,7 +36,6 @@ $(document).ready(function () {
         $(".card-subtitle").css("font-size", cardWidth * (11/(1056 * .3)) + "px");
         $(".explore").css("font-size", cardWidth * (10/(1056 * .3)) + "px");
         $(".card-content").css("font-size", cardWidth * (15/300) + "px");
-
     }
 
 });
