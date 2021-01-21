@@ -217,6 +217,12 @@ div.card:hover .explore {
     font-weight: 200;
 }
 
+.card-content-award {
+    /*color: #e8ba44;
+    linear-gradient(to top right, #FE9E68, #F7CE68);*/
+    font-weight: 400;
+}
+
 div.card:hover .card-content {
     transition-delay: 0s;
     opacity: 1;
